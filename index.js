@@ -37,6 +37,16 @@ app.use(express.static(path.join(__dirname,"/public")))//for css and javascript 
 // const mongo_url='mongodb://127.0.0.1:27017/wonder_lust;
 const dburl=process.env.ATLAS_URL;
 
+main()
+.then(()=>{
+    console.log("connection succesful");  //==>mongoose databse connection from website mongoose
+})
+.catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect(dburl); //==>mongoose databse connection
+}
+
 
 //sessions mongo last
 const store=MongoStore.create(
@@ -65,15 +75,6 @@ const sessionOptions={
   },
 } ;
 
-main()
-.then(()=>{
-    console.log("connection succesful");  //==>mongoose databse connection from website mongoose
-})
-.catch(err => console.log(err));
-
-async function main() {
-  await mongoose.connect(dburl); //==>mongoose databse connection
-}
 
 // app.get('/', function (req, res) {
 //   res.send('Workig');
