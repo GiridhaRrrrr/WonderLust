@@ -97,7 +97,11 @@ app.use((req,res,next)=>{
   res.locals.success=req.flash("success")//when every ejs file uses "success" flash message appers
   //here locals."success" this==> is want now used in ejs  and in flash we passed key sucess 
   res.locals.error=req.flash("error");
-  res.locals.curruser=req.user;//we save info of user in curruser
+  if(req.user){
+    res.locals.curruser=req.user;//we save info of user in curruser
+  }else{
+    res.locals.curruser="";//we save info of user in curruser
+  }
   next();//==> imp dont forget
 })
 
