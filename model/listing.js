@@ -13,6 +13,7 @@ const listingschema=new mongoose.Schema({
     img:{
         url:String,
         filename:String,
+        default:"https://images.unsplash.com/photo-1682685796444-acc2f5c1b7b6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     price:{
         type:Number,
