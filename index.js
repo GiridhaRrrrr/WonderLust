@@ -106,6 +106,10 @@ app.use((req,res,next)=>{
   next();//==> imp dont forget
 })
 
+app.get("/",(req,res)=>{
+  res.redirect("/listings");
+})
+
 //now directing to routes
 app.use("/listings",listingsrouter);
 
