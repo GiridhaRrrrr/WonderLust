@@ -52,11 +52,11 @@ module.exports.create=async (req,res)=>{
      
     let url=req.file.path;
     let filename=req.file.filename;//==> req.body has access to these things
-    let newlist=new listing(req.body.listing) //new way of taking from post  by making it listing objects
+    const newlist=new listing(req.body.listing) //new way of taking from post  by making it listing objects
     newlist.owner=req.user._id;//saving the owner...as req.user has information of current logged in user so that id is saved as owner
     newlist.img={url,filename};
     newlist.geometry=response.body.features[0].geometry;
-    console.log(newlist.geometry);
+    // console.log(newlist.geometry);
     await newlist.save();
    req.flash("success","New listing Created!")
     res.redirect("/listings"); 
