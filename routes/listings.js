@@ -5,9 +5,9 @@ const wrapAsync=require("../utils/wrapAsyncfn.js");//for wrapAsync "3rd"  and 1s
 const externalerror=require("../utils/externalerror.js");//For exteranl Error class "2nd"
 const {listingschema,reviewschema}=require("../utils/joiSchema.js");//in joySchema reuiring lisiting and review schema
 const {isloggedin,isowner,validateError}=require("../utils/middleware_passport.js");
+const multer  = require('multer')
 const listingcontroller=require("../controllers/listings.js");
 //for backend to understand files data from imgae upload
-const multer  = require('multer')
 const {storage}=require("../cloudconfig.js")
 const upload = multer({storage });
 
