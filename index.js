@@ -52,7 +52,7 @@ async function main() {
 const store=MongoStore.create(
   { mongoUrl:dburl,
    crypto: {
-     secret: process.env.secret,
+     secret: process.env.SECRET,
    },
    touchAfter:24*3600,
  }
@@ -65,7 +65,7 @@ const store=MongoStore.create(
 //session part
 const sessionOptions={
   store:store,
-  secret:process.env.secret,
+  secret:process.env.SECRET,
   resave:false,
   saveUninitialized: true,
   cookie:{//==>used to store our expire date whisch is by default set to  null 
